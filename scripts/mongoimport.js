@@ -27,12 +27,33 @@ var Position = mongoose.model(
 var Player = mongoose.model(
 	'Player', 
 	mongoose.Schema({
-		"pos": String,
+		"pos": Number,
 		"num": String,
 		"name": String,
-		"team": String
+		"team": Number
 	})
 );
+
+Position.find({},function(err,dbpositions){
+
+	for(var i=0; i<dbpositions.length; i++) {
+		dbpositions[i].remove();
+	}
+
+	for(var i=0; i<positions.length; i++) {
+		var position = new Position({ 
+			"abbr":	positions[i].abbr,
+			"pos": positions[i].pos
+		});
+
+		position.save(function(err,dbposition){
+			if (err)
+			console.log("Error on position save!");
+		})
+	}
+
+	console.log("Position import finished!");
+})
 
 Team.find({},function(err,dbteams){
 
@@ -51,6 +72,8 @@ Team.find({},function(err,dbteams){
 			console.log("Error on team save!");
 		})
 	}
+
+	console.log("Team import finished!");
 })
 
 
@@ -70,9 +93,10 @@ Player.find({},function(err,dbplayers){
 
 		player.save(function(err,dbplayer){
 			if (err)
-			console.log("Error on player save!")
+			console.log("Error on player save!");
 		})
 	}
 	
+	console.log("Player import finished!");
 	// process.exit(0);
 })
