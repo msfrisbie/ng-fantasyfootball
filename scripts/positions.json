@@ -1,6 +1,7 @@
-[{"idno":1, "abbr":"QB",  "pos":"Quarterback"},
-{"idno":2, "abbr":"RB",  "pos":"Runningback"},
-{"idno":3, "abbr":"WR",  "pos":"Wide Receiver"},
-{"idno":4, "abbr":"TE",  "pos":"Tight End"},
-{"idno":5, "abbr":"K",   "pos":"Kicker"},
-{"idno":6, "abbr":"D/ST","pos":"Defense/Special Teams"}]
+[{"abbr": "", "pos":""},
+{"abbr":"QB",  "pos":"Quarterback"},
+{"abbr":"RB",  "pos":"Runningback"},
+{"abbr":"WR",  "pos":"Wide Receiver"},
+{"abbr":"TE",  "pos":"Tight End"},
+{"abbr":"K",   "pos":"Kicker"},
+{"abbr":"D/ST","pos":"Defense/Special Teams"}]
