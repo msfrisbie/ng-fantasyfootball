@@ -10,10 +10,10 @@ var PlayerSchema = new Schema({
 	team: {type : String}
 });
 
-PlayerSchema.statics = {
-  load: function (id, cb) {
-    this.findOne({ _id : id }).populate('user').exec(cb);
-  }
-};
+// PlayerSchema.statics = {
+//   load: function (id, cb) {
+//     this.findOne({ _id : id }).populate('user').exec(cb);
+//   }
+// };
 
 mongoose.model('Player', PlayerSchema);

@@ -1,0 +1,8 @@
+<section data-ng-controller="TeamsController" data-ng-init="find()">
+	<ul class="unstyled">
+		<li data-ng-repeat="team in teams">
+			<span>{{team.name}}</span>
+		</li>
+	</ul>
+	<h1 data-ng-hide="!teams || teams.length">No teams yet. <br> Why don't you <a href="/#/teams/create">Create One</a>?</h1>
+</section>

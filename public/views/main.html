@@ -1,8 +1,4 @@
-<section data-ng-controller="IndexController">
-	<h1>This is the home view</h1>
-	{{ global.isSignedIn() }} | {{ global.currentUser() }} |
-
-	<div>
+<div>
   <input type="text" ng-model="search.name">
   <positions></positions>
   <teams></teams>
@@ -42,14 +38,4 @@
       <td player></td>
       <!-- <rostplayer></rostplayer> -->
     </tr>
-	</div>
-	
-	<section data-ng-controller="PlayersController" data-ng-init="find()">
-		<ul class="unstyled">	
-			<li data-ng-repeat="player in players">
-				<span>{{player}}</span>
-			</li>
-		</ul>
-		|	{{ players.length }} |
-	</section>
-</section>
+</div>

@@ -1,0 +1,8 @@
+<section data-ng-controller="LeaguesController" data-ng-init="find()">
+	<ul class="unstyled">
+		<li data-ng-repeat="league in leagues">
+			<span>{{league.name}}</span>
+		</li>
+	</ul>
+	<h1 data-ng-hide="!leagues || leagues.length">No leagues yet. <br> Why don't you <a href="/#/leagues/create">Create One</a>?</h1>
+</section>

@@ -15,6 +15,18 @@ module.exports = function (app, passport, auth) {
   
   app.param('userId', users.user)
   
+  var leagues = require('../app/controllers/leagues')  
+  app.get('/leagues', leagues.all)
+  app.post('/leagues', auth.requiresLogin, leagues.create)
+
+  // app.param('leagueId', leagues.league)
+
+  var teams = require('../app/controllers/teams')  
+  app.get('/teams', teams.all)
+  app.post('/teams', auth.requiresLogin, teams.create)
+
+  // app.param('teamId', teams.team)
+
   var players = require('../app/controllers/players')
   app.get('/players', players.all)
 
