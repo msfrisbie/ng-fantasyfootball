@@ -3,9 +3,9 @@
 /* Controllers */
 
 window.angular.module('myApp.controllers', ['myApp.services']).
-  controller('Ctrl',function($scope,Teams,Roster) {
+  controller('Ctrl',function($scope,NFLTeams,Roster) {
     $scope.roster = Roster;
-    $scope.teams = Teams.teams;
+    $scope.teams = NFLTeams.teams;
     $scope.limitct = 10;
 
     $scope.fantasy = {team: []};
@@ -28,8 +28,9 @@ window.angular.module('myApp.controllers', ['myApp.services']).
   .controller('PositionCtrl', function($scope, Positions) {
     $scope.positions = Positions.positions;
   })
-  .controller('TeamCtrl', function($scope, $routeParams, Teams) {
-    // $scope.team = Teams.teams[$routeParams['tid']];
+  .controller('TeamCtrl', function($scope, $routeParams, NFLTeams) {
+    $scope.nflteams = NFLTeams.teams;
+    $scope.nflteam = NFLTeams.teams[$routeParams['tid']];
   })
   .controller('PlayerCtrl', function($scope, $routeParams, Roster) {
     $scope.player = Roster.personnel[$routeParams['pid']];

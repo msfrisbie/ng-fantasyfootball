@@ -10,7 +10,6 @@ window.app.config(['$routeProvider', function($routeProvider) {
     controller: "Ctrl",
     templateUrl: "views/main.html"
   })
-
   .when('/test', 
   {
     template: 'TEST'
@@ -41,13 +40,21 @@ window.app.config(['$routeProvider', function($routeProvider) {
     controller: "PlayerCtrl",
     templateUrl: "partials/_player.html"
   })
-  .when('/team/:tid',
+  .when('/nflteams',
   {
     controller: "TeamCtrl",
-    templateUrl: "partials/_team.html"
+    templateUrl: "partials/_nflteams.html"
+  })
+  .when('/nflteams/:tid',
+  {
+    controller: "TeamCtrl",
+    templateUrl: "partials/_nflteam.html"
   })
 	// .when('/', { templateUrl: 'views/index.html' }).
-	.otherwise({redirectTo: '/'});
+	.otherwise(
+  {
+    redirectTo: '/'
+  });
 }]);
 
 //Removing tomcat unspported headers
@@ -57,7 +64,7 @@ window.app.config(['$httpProvider', function($httpProvider, Configuration) {
 
 //Setting HTML5 Location Mode
 window.app.config(['$locationProvider', function($locationProvider) {
-    $locationProvider.html5Mode(false);
+    // $locationProvider.html5Mode(true);
     // $locationProvider.hashPrefix("!");
 }]);
 

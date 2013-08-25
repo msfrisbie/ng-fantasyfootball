@@ -4,25 +4,25 @@ mongoose.connect('mongodb://localhost/mean-dev');
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 
-var personnel = require('./personnel');
-var teams = require('./teams');
+// var personnel = require('./personnel');
+// var nflteams = require('./nflteams');
 var positions = require('./positions');
 
-var Team = mongoose.model(
-	'Team', 
-	mongoose.Schema({
-		"abbr": String,
-		"name": String
-	})
-);
+// var NFLTeam = mongoose.model(
+// 	'NFLTeam', 
+// 	mongoose.Schema({
+// 		"abbr": String,
+// 		"name": String
+// 	})
+// );
 
-var Position = mongoose.model(
-	'Position', 
-	mongoose.Schema({
-		"abbr": String,
-		"name": String
-	})
-);
+// var Position = mongoose.model(
+// 	'Position', 
+// 	mongoose.Schema({
+// 		"abbr": String,
+// 		"name": String
+// 	})
+// );
 
 var Player = mongoose.model(
 	'Player', 
@@ -34,47 +34,47 @@ var Player = mongoose.model(
 	})
 );
 
-Position.find({},function(err,dbpositions){
+// Position.find({},function(err,dbpositions){
 
-	for(var i=0; i<dbpositions.length; i++) {
-		dbpositions[i].remove();
-	}
+// 	for(var i=0; i<dbpositions.length; i++) {
+// 		dbpositions[i].remove();
+// 	}
 
-	for(var i=0; i<positions.length; i++) {
-		var position = new Position({ 
-			"abbr":	positions[i].abbr,
-			"pos": positions[i].pos
-		});
+// 	for(var i=0; i<positions.length; i++) {
+// 		var position = new Position({ 
+// 			"abbr":	positions[i].abbr,
+// 			"pos": positions[i].pos
+// 		});
 
-		position.save(function(err,dbposition){
-			if (err)
-			console.log("Error on position save!");
-		})
-	}
+// 		position.save(function(err,dbposition){
+// 			if (err)
+// 			console.log("Error on position save!");
+// 		})
+// 	}
 
-	console.log("Position import finished!");
-})
+// 	console.log("Position import finished!");
+// })
 
-Team.find({},function(err,dbteams){
+// NFLTeam.find({},function(err,dbnflteams){
 
-	for(var i=0; i<dbteams.length; i++) {
-		dbteams[i].remove();
-	}
+// 	for(var i=0; i<dbnflteams.length; i++) {
+// 		dbnflteams[i].remove();
+// 	}
 
-	for(var i=0; i<teams.length; i++) {
-		var team = new Team({ 
-			"abbr":	teams[i].abbr,
-			"name": teams[i].team
-		});
+// 	for(var i=0; i<nflteams.length; i++) {
+// 		var nflteam = new NFLTeam({ 
+// 			"abbr":	nflteams[i].abbr,
+// 			"name": nflteams[i].team
+// 		});
 
-		team.save(function(err,dbteam){
-			if (err)
-			console.log("Error on team save!");
-		})
-	}
+// 		nflteam.save(function(err,dbnflteam){
+// 			if (err)
+// 			console.log("Error on nflteam save!");
+// 		})
+// 	}
 
-	console.log("Team import finished!");
-})
+// 	console.log("NFLTeam import finished!");
+// })
 
 
 Player.find({},function(err,dbplayers){

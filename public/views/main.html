@@ -10,7 +10,7 @@
       <td>{{ player.num }}</td>
       <!-- this is a hack, need to fix this -->
       <td>
-        <a href="/app/index.html#/player/{{ player.idno-1 }}">
+        <a href="#/player/{{ player.idno-1 }}">
           {{ player.name }}
         </a>
       </td>
@@ -20,7 +20,7 @@
         </a> -->
         <!-- {{ teams[player.team-1]}} -->
         <!-- How to pass object as attribute instead of string? -->
-        <div teamlink teamid="player.team"></div>
+        <div teamlink teamid="{{player.team}}"></div><!-- {{player.team}} -->
         <!-- <div teamlink tid="{{ player.team-1 }}"></div> -->
       </td>
     </tr>

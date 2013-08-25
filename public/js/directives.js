@@ -19,7 +19,7 @@ window.angular.module('myApp.directives', ['myApp.services'])
   .directive('teams', function() {
     return {
       restrict: "E",
-      controller: "TeamCtrl",
+      // controller: "TeamCtrl",
       template: '<select ng-model="search.team" ng-options="c.abbr as c.team for c in teams"></select>'
     };
   })
@@ -52,7 +52,7 @@ window.angular.module('myApp.directives', ['myApp.services'])
     templateUrl: "partials/_team.html"
   }
 })
-.directive('teamlink', function() {
+.directive('teamlink', function(NFLTeams) {
   return {
     transclude: true,
     scope: {
@@ -63,6 +63,7 @@ window.angular.module('myApp.directives', ['myApp.services'])
       // scope.tid = attrs.tid
       // scope.teams = Teams.teams
       scope.teamid=attrs.teamid
+      scope.nflteams=NFLTeams.teams
 
       // scope.team=Teams.teams[attrs.teamid-1]
     },
