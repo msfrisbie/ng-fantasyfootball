@@ -27,11 +27,13 @@ module.exports = function (app, passport, auth) {
   
   app.param('leagueId', leagues.league)
 
-  // app.param('FantasyTeamId', teams.team)
 
   var fantasyteams = require('../app/controllers/fantasyteams')  
   app.get('/fantasyteams', fantasyteams.all)
   app.post('/fantasyteams', auth.requiresLogin, fantasyteams.create)
+  app.get('/fantasyteams/:fantasyTeamId', fantasyteams.show)
+
+  app.param('fantasyTeamId', fantasyteams.fantasyteam)
 
   var players = require('../app/controllers/players')
   app.get('/players', players.all)

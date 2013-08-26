@@ -7,6 +7,17 @@ var mongoose = require('mongoose')
   , FantasyTeam = mongoose.model('FantasyTeam')
   , _ = require('underscore')
 
+exports.fantasyteam = function(req, res, next, id){
+  var FantasyTeam = mongoose.model('FantasyTeam')
+
+  FantasyTeam.load(id, function (err, fantasyteam) {
+    if (err) return next(err)
+    if (!fantasyteam) return next(new Error('Failed to load fantasy team ' + id))
+    req.fantasyteam = fantasyteam
+    next()
+  })
+}
+
 /**
  * List of Teams
  */
@@ -26,8 +37,13 @@ exports.all = function(req, res){
 exports.create = function (req, res) {
   var fantasyteam = new FantasyTeam(req.body)
   fantasyteam.owner = req.user // the request user object is the owner
+  fantasyteam.league = req.league
   fantasyteam.save()
   res.jsonp(fantasyteam)
+}
+
+exports.show = function(req, res){
+  res.jsonp(req.fantasyteam);
 }
 
 // /**

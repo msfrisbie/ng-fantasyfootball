@@ -9,7 +9,7 @@ var mongoose = require('mongoose')
 
 
 exports.league = function(req, res, next, id){
-  var User = mongoose.model('User')
+  var League = mongoose.model('League')
 
   League.load(id, function (err, league) {
     if (err) return next(err)

@@ -30,6 +30,10 @@ window.app.config(['$routeProvider', function($routeProvider) {
   { 
     templateUrl: 'views/teams/create.html' 
   })
+  .when('/teams/:fantasyTeamId', 
+  { 
+    templateUrl: 'views/teams/view.html' 
+  })
   .when('/leagues/:leagueId/edit', 
   { 
     templateUrl: 'views/leagues/edit.html' 

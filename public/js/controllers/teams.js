@@ -31,4 +31,10 @@ function TeamsController($scope, $routeParams, $location, Global, Leagues, Fanta
 			$scope.teams = teams;
 		});
 	};
+
+	$scope.findOne = function () {
+		FantasyTeams.get({ fantasyTeamId: $routeParams.fantasyTeamId }, function (fantasyteam) {
+			$scope.fantasyteam = fantasyteam;
+		});
+	};
 }
