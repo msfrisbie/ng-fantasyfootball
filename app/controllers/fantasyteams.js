@@ -13,9 +13,9 @@ var mongoose = require('mongoose')
 exports.all = function(req, res){
  FantasyTeam.find().populate('owner').populate('league').exec(function(err, fantasyteams) {
    if (err) {
-     res.render('error', {status: 500});
+      res.render('error', {status: 500});
    } else {      
-       res.jsonp(fantasyteams);
+      res.jsonp(fantasyteams);
    }
  });
 }
@@ -25,7 +25,7 @@ exports.all = function(req, res){
  */
 exports.create = function (req, res) {
   var fantasyteam = new FantasyTeam(req.body)
-  fantasyteam.user = req.user // the request user object is the owner
+  fantasyteam.owner = req.user // the request user object is the owner
   fantasyteam.save()
   res.jsonp(fantasyteam)
 }

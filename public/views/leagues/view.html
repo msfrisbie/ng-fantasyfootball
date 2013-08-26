@@ -1,0 +1,10 @@
+<section data-ng-controller="LeaguesController" data-ng-init="findOne()">
+	<h2>{{ league.name }}</h2>
+	<p><strong>Commissioner: </strong>{{ league.commissioner.name }}</p>
+	<p><strong>Teams:</strong></p>
+	<p>
+		<ul ng-repeat="fantasyteam in league.teams">
+			<li>{{ fantasyteam }}</li>
+		</ul>
+	</p>
+</section>

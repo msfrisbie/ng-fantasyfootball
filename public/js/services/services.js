@@ -11,7 +11,7 @@ window.angular.module('myApp.services', [])
   .factory('NFLTeams', function() {
     var NFLTeams = {};
     NFLTeams.teams = [
-	    {"abbr": "", "pos":"", "mascot":""},
+	    {"abbr": "", "pos":"", "mascot":"", "conference": "", "division": ""},
 			{"abbr":"ARI", "team":"Arizona", 				"mascot": "Cardinals", 	"conference":"NFC", "division": "West"},
 			{"abbr":"ATL", "team":"Atlanta", 				"mascot": "Falcons", 		"conference":"NFC", "division": "South"},
 			{"abbr":"BAL", "team":"Baltimore", 			"mascot": "Ravens", 		"conference":"AFC", "division": "North"},

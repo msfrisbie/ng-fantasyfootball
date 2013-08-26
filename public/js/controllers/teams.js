@@ -1,11 +1,17 @@
-function TeamsController($scope, $routeParams, $location, Global, FantasyTeams) {
+function TeamsController($scope, $routeParams, $location, Global, Leagues, FantasyTeams) {
 	$scope.global = Global;
+
+	$scope.populateLeagues = function(query) {
+		Leagues.query(query, function (leagues) {
+			$scope.leagues = leagues;
+		});
+	};
 
 	$scope.create = function () {
 		var fantasyteam = new FantasyTeams({ 
-			owner: this.owner, 
-			league: this.league,
-			name: this.name,
+			// owner: this.owner, 
+			league: this.newteam.league,
+			name: this.newteam.name,
 			players: this.players 
 		});
 
@@ -14,10 +20,10 @@ function TeamsController($scope, $routeParams, $location, Global, FantasyTeams) 
 			// $location.path("/");
 		});
 
-		this.owner = "";
+		// this.owner = "";
 		this.league = "";
 		this.name = "";
-		this.players = [];
+		// this.players = [];
 	};
 
 	$scope.find = function (query) {

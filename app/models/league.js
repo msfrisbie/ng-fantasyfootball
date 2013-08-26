@@ -9,4 +9,10 @@ var LeagueSchema = new Schema({
 	teams: [{type: Schema.ObjectId, ref: 'Team'}]
 });
 
+LeagueSchema.statics = {
+  load: function (id, cb) {
+    this.findOne({ _id : id }).populate('commissioner').exec(cb);
+  }
+};
+
 mongoose.model('League', LeagueSchema);

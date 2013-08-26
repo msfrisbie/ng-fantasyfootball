@@ -1,11 +1,14 @@
 <section data-ng-controller="LeaguesController">
-	<form class="form-horizontal" data-ng-submit="create()">
+	<form class="form-horizontal" data-ng-submit="create()" ng-init="populateFantasyTeams()">
 		<div class="control-group">
 			<label class="control-label" for="name">Name</label>
 			<div class="controls">
 				<input type="text" data-ng-model="name" id="name" placeholder="Name">
 			</div>
 		</div>
+		<ul ng-repeat="fantasyteam in fantasyteams">
+			<li>{{ fantasyteam }}</li>
+		</ul>
 		<div class="control-group">
 			<div class="controls">
 				<input type="submit" class="btn">
