@@ -34,13 +34,17 @@ window.app.config(['$routeProvider', function($routeProvider) {
   { 
     templateUrl: 'views/teams/view.html' 
   })
-  .when('/leagues/:leagueId/edit', 
+  .when('/teams/:fantasyTeamId/edit', 
   { 
-    templateUrl: 'views/leagues/edit.html' 
+    templateUrl: 'views/teams/edit.html' 
   })
   .when('/leagues/:leagueId', 
   { 
     templateUrl: 'views/leagues/view.html' 
+  })
+  .when('/leagues/:leagueId/edit', 
+  { 
+    templateUrl: 'views/leagues/edit.html' 
   })
   
   // .when('players',

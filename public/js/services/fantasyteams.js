@@ -2,8 +2,8 @@ window.app.factory("FantasyTeams", function($resource){
 	return $resource(
 		'fantasyteams/:fantasyTeamId', 
 		{
-			teamId:'@_id',
-			leagueId:'@league'
+			fantasyTeamId:'@_id',
+			leagueId:'@league._id'
 		}, 
 		{
 			update: {method: 'PUT'}

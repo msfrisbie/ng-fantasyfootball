@@ -1,0 +1,18 @@
+<section data-ng-controller="LeaguesController">
+	<form class="form-horizontal" data-ng-submit="update()" ng-init="findOne();populateFantasyTeams()">
+		<div class="control-group">
+			<label class="control-label" for="name">Name</label>
+			<div class="controls">
+				<input type="text" data-ng-model="league.name" id="name" placeholder="Name">
+			</div>
+		</div>
+		<ul ng-repeat="fantasyteam in fantasyteams">
+			<li>{{ fantasyteam }}</li>
+		</ul>
+		<div class="control-group">
+			<div class="controls">
+				<input type="submit" class="btn">
+			</div>
+		</div>
+	</form>
+</section>

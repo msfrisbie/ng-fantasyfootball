@@ -36,14 +36,43 @@ exports.all = function(req, res){
  */
 exports.create = function (req, res) {
   var fantasyteam = new FantasyTeam(req.body)
+  debugger;
   fantasyteam.owner = req.user // the request user object is the owner
-  fantasyteam.league = req.league
+  fantasyteam.league = req.body.league
   fantasyteam.save()
   res.jsonp(fantasyteam)
 }
 
 exports.show = function(req, res){
   res.jsonp(req.fantasyteam);
+}
+
+
+/**
+ * Update a fantasy team
+ */
+exports.update = function(req, res){
+  debugger;
+  var fantasyteam = req.fantasyteam
+  fantasyteam = _.extend(fantasyteam, req.body)
+
+  fantasyteam.save(function(err) {
+   res.jsonp(fantasyteam)
+  })
+}
+
+/**
+ * Delete an fantasy team
+ */
+exports.destroy = function(req, res){
+  var fantasyteam = req.fantasyteam
+  fantasyteam.remove(function(err){
+    if (err) {
+     res.render('error', {status: 500});
+   } else {      
+     res.jsonp(fantasyteam);
+   }
+  })
 }
 
 // /**

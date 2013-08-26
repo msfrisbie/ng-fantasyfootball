@@ -26,6 +26,18 @@ function TeamsController($scope, $routeParams, $location, Global, Leagues, Fanta
 		// this.players = [];
 	};
 
+	$scope.update = function () {
+		var fantasyteam = $scope.fantasyteam;
+		if (!fantasyteam.updated) {
+			fantasyteam.updated = [];
+		}
+		fantasyteam.updated.push(new Date().getTime());
+
+		fantasyteam.$update(function () {
+			$location.path('teams/' + fantasyteam._id);
+		});
+	};
+
 	$scope.find = function (query) {
 		FantasyTeams.query(query, function (teams) {
 			$scope.teams = teams;
